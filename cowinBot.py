@@ -41,20 +41,21 @@ def create_output(session_info):
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0"}
 
-# while(1) :
-welcome = "https://api.telegram.org/bot1830209817:AAEygMG_lYMKNYI54ESxXP9UnTBfwmOMDIg/sendMessage?chat_id=-523622434&text=Tracking%20Started"
-requests.get(welcome)
-# print(get_for_seven_days(datetime.today()))
-content = "\n".join([create_output(session_info) for session_info in get_for_seven_days(datetime.today())])
+while(1) :
+    welcome = "https://api.telegram.org/bot1830209817:AAEygMG_lYMKNYI54ESxXP9UnTBfwmOMDIg/sendMessage?chat_id=-523622434&text=Tracking%20Started"
+    requests.get(welcome)
+    # print(get_for_seven_days(datetime.today()))
+    content = "\n".join([create_output(session_info) for session_info in get_for_seven_days(datetime.today())])
 
-if not content:
-    out_url = "https://api.telegram.org/bot1830209817:AAEygMG_lYMKNYI54ESxXP9UnTBfwmOMDIg/sendMessage?chat_id=-523622434&text=Not%20Available%20in%20your%20Pincode"
-    x=requests.get(out_url)
-    print(x)
-    print("No availability")
-else:
-    out_url = "https://api.telegram.org/bot1830209817:AAEygMG_lYMKNYI54ESxXP9UnTBfwmOMDIg/sendMessage?chat_id=-523622434&text="+content
-    x=requests.get(out_url)
-    print(x)
-    print(content)
-    # time.sleep(60)
+    if not content:
+        out_url = "https://api.telegram.org/bot1830209817:AAEygMG_lYMKNYI54ESxXP9UnTBfwmOMDIg/sendMessage?chat_id=-523622434&text=Not%20Available%20in%20your%20Pincode"
+        x=requests.get(out_url)
+        print(x)
+        print("No availability")
+    else:
+        out_url = "https://api.telegram.org/bot1830209817:AAEygMG_lYMKNYI54ESxXP9UnTBfwmOMDIg/sendMessage?chat_id=-523622434&text="+content
+        x=requests.get(out_url)
+        print(x)
+        print(content)
+
+    time.sleep(60*60*6)
